@@ -169,3 +169,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# My gitignore
+Lab/Lab_1/data/cifar10/cifar-10-python.tar.gz
