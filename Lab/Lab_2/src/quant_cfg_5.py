@@ -1,14 +1,12 @@
 from hqq.core.quantize import BaseQuantizeConfig
 
 # TODO: Make your own quant config for DeiT-S
-# Score: 18.72741394042967
 def get_quant_config_deit(model):
     quant_config = {}
     
     n_blocks = len(model.blocks)
-    q2_config = BaseQuantizeConfig(nbits=4, group_size=64)
+    q2_config = BaseQuantizeConfig(nbits=2, group_size=64)
     
-    quant_config[f'head'] = q2_config
     for i in range(n_blocks):
         quant_config[f'blocks.{i}.attn.qkv'] = q2_config
         quant_config[f'blocks.{i}.attn.proj'] = q2_config

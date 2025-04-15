@@ -1,7 +1,6 @@
 from hqq.core.quantize import BaseQuantizeConfig
 
 # TODO: Make your own quant config for DeiT-S
-# Score: 18.72741394042967
 def get_quant_config_deit(model):
     quant_config = {}
     
