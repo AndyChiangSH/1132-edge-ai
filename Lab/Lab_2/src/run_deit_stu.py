@@ -7,7 +7,7 @@ from hqq.utils.patching import recommended_inductor_config_setter
 from hqq_utils import AutoHQQTimmModel, get_size_of_model
 from utils import prepare_data, evaluate_model
 
-from quant_cfg_6 import get_quant_config_deit
+from quant_cfg import get_quant_config_deit
 
 def main():
     ############## Set Up ##############
@@ -20,7 +20,7 @@ def main():
     batch_size = 16
     _, test_loader, _ = prepare_data(batch_size)
     
-    model = torch.load('./model/0.9099_deit3_small_patch16_224.pth', map_location='cpu', weights_only=False)
+    model = torch.load('./0.9099_deit3_small_patch16_224.pth', map_location='cpu', weights_only=False)
     model = model.to(device)
     model.eval()
     
@@ -28,8 +28,6 @@ def main():
     model.device = 'cuda:0'
     model.dtype = torch.float32
     ##################################### 
-    
-    print("model:", model)
 
     # TODO: Quantize
     quant_config = get_quant_config_deit(model)
