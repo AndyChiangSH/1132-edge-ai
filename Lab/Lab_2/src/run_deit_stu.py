@@ -20,7 +20,7 @@ def main():
     batch_size = 16
     _, test_loader, _ = prepare_data(batch_size)
     
-    model = torch.load('./0.9099_deit3_small_patch16_224.pth', map_location='cpu', weights_only=False)
+    model = torch.load('./model/0.9099_deit3_small_patch16_224.pth', map_location='cpu', weights_only=False)
     model = model.to(device)
     model.eval()
     

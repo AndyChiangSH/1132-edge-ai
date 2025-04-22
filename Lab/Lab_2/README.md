@@ -76,19 +76,19 @@ Please hand in report in **HackMD** to answer the following questions:
 
 2. Try to quantize `Llama3.2-1B-Instruct` from FP16 to nbit integer (n=8,4,3,2), fill in the following chart. **(group_size=64)** **(10%)**
 
-|        nbit         |    16    |  8  |  4  |  2  |
-|:-------------------:|:--------:|:---:|:---:|:---:|
-|  Perplexity (PPL)   |  13.160  |13.166|15.048|215521.531|
-|  Model Size (MiB)   | 2858.129 |1988.129|1524.129|1292.129|
-| Throughput (toks/s) | 124.394  |110.974|108.733|91.279|
-|      Score (X)      |    5     |  5  |  0  |  0  |
+|        nbit         |    16    |  8  |  4  |  3  |  2  |
+|:-------------------:|:--------:|:---:|:---:|:---:|:---:|
+|  Perplexity (PPL)   |  13.160  |13.166|15.048|30.367|215521.531|
+|  Model Size (MiB)   | 2858.129 |1988.129|1524.129|1431.344|1292.129|
+| Throughput (toks/s) | 124.394  |110.974|108.733|37.581|92.708|
+|      Score (X)      |    5     |  5  |  0  |  0  |  0  |
 
 
-3. Explain how you determine the quantization method for `DeiT-S` and `Llama3.2-1B-Instruct` for best performance. If you can provide a visualized analysis or any chart according to your experiment would be better. **(15%)**
+1. Explain how you determine the quantization method for `DeiT-S` and `Llama3.2-1B-Instruct` for best performance. If you can provide a visualized analysis or any chart according to your experiment would be better. **(15%)**
 
-4. Which model is harder to quantize, what might be the reason ?  **(5%)**
+2. Which model is harder to quantize, what might be the reason ?  **(5%)**
 
-5. Please attach screenshots showing the speedup and PPL of `Llama3.2-1B-Instruct` in your report. The screenshot will be used as the evidence in case performance drops due to different hardware platform. **(For Criteria of Section 2.2)**
+3. Please attach screenshots showing the speedup and PPL of `Llama3.2-1B-Instruct` in your report. The screenshot will be used as the evidence in case performance drops due to different hardware platform. **(For Criteria of Section 2.2)**
 
 ## Hand-In Policy
 

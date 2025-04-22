@@ -9,7 +9,7 @@ import numpy as np
 from hqq_utils import AutoHQQHFModel, get_size_of_model
 from hqq.utils.patching import recommended_inductor_config_setter
 
-from quant_cfg_4 import get_quant_config_slm
+from quant_cfg import get_quant_config_slm
 
 def generate(model, input_ids, past_key_values, max_new_tokens, activate_timing, verbose=True):
     input_ids = input_ids.clone()
@@ -130,6 +130,7 @@ def main():
         past_key_values.reset()
         
     prompt = "How to learn a new language?"
+    input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
     tputs = []
     for _ in tqdm(range(10), desc="Test Inference"):
         generated, tput = generate(model, input_ids, past_key_values, max_new_tokens, activate_timing=True, verbose=False)
@@ -158,7 +159,6 @@ def main():
 
     prompt = "How to learn a new language?"
     input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(model.device)
-    
     tputs = []
     for _ in tqdm(range(10), desc="Test Inference"):
         generated, tput = generate(model, input_ids, past_key_values, max_new_tokens, activate_timing=True, verbose=False)

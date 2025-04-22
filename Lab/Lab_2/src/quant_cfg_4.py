@@ -20,7 +20,7 @@ def get_quant_config_slm(model):
     quant_config = {}
     
     n_layers = model.config.num_hidden_layers
-    q2_config = BaseQuantizeConfig(nbits=2, group_size=64) 
+    q2_config = BaseQuantizeConfig(nbits=3, group_size=64) 
     
     for i in range(n_layers):
         quant_config[f'model.layers.{i}.self_attn.q_proj'] = q2_config
