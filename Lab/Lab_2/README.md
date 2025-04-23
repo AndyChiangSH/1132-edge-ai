@@ -70,19 +70,18 @@ Please hand in report in **HackMD** to answer the following questions:
 |       nbit       |   32   |  8  |  4  |  3  |  2  |
 |:----------------:|:------:|:---:|:---:|:---:|:---:|
 |   Accuracy (%)   | 90.99  |90.98|89.59|84.76|4.29 |
-| Model Size (MiB) | 82.540 |24.321|14.196|12.177|9.133|
-|      Score (X)   | -45.539 |12.678|18.703|-27.577|-829.233|
-
+| Model Size (MiB) | 82.540 |24.321|14.196|12.178|9.134|
+|      Score (X)   | -45.539 |12.678|18.704|-27.578|-829.234|
 
 2. Try to quantize `Llama3.2-1B-Instruct` from FP16 to nbit integer (n=8,4,3,2), fill in the following chart. **(group_size=64)** **(10%)**
 
-|        nbit         |    16    |  8  |  4  |  3  |  2  |
-|:-------------------:|:--------:|:---:|:---:|:---:|:---:|
-|  Perplexity (PPL)   |  13.160  |13.166|15.048|30.367|215521.531|
-|  Model Size (MiB)   | 2858.129 |1988.129|1524.129|1431.344|1292.129|
-| Throughput (toks/s) | 124.394  |110.974|108.733|37.581|92.708|
-|      Score (X)      |    5     |  5  |  0  |  0  |  0  |
-
+|        nbit         |    16    |  8  |  4  |  2  |
+|:-------------------:|:--------:|:---:|:---:|:---:|
+|  Perplexity (PPL)   |  13.160  |13.167|15.051|215864.438|
+|  Model Size (MiB)   | 2858.129 |1988.135|1524.135|1292.135|
+| Throughput (toks/s) | 124.431  |162.956|233.551|242.203|
+|     Speedup (X)     |  1.000   |1.309|1.876|1.946|
+|      Score (X)      |    5     |  10  |  5  |  5  |
 
 1. Explain how you determine the quantization method for `DeiT-S` and `Llama3.2-1B-Instruct` for best performance. If you can provide a visualized analysis or any chart according to your experiment would be better. **(15%)**
 
