@@ -67,27 +67,34 @@ Please hand in report in **HackMD** to answer the following questions:
 
 1. Try to quantize `DeiT-S` from FP32 to nbit integer (n=8,4,3,2), fill in the following chart. **(group_size=64)** **(10%)**
     
-|       nbit       |   32   |  8  |  4  |  3  |  2  |
-|:----------------:|:------:|:---:|:---:|:---:|:---:|
-|   Accuracy (%)   | 90.99  |90.98|89.59|84.76|4.29 |
-| Model Size (MiB) | 82.540 |24.321|14.196|12.178|9.134|
-|      Score (X)   | -45.539 |12.678|18.704|-27.578|-829.234|
+    |       nbit       |   32   |   8    |   4    |   3    |   2   |
+    |:----------------:|:------:|:------:|:------:|:------:|:-----:|
+    |   Accuracy (%)   | 90.99  | 90.98  | 89.59  | 84.76  | 4.29  |
+    | Model Size (MiB) | 82.540 | 24.321 | 14.196 | 12.178 | 9.134 |
 
-2. Try to quantize `Llama3.2-1B-Instruct` from FP16 to nbit integer (n=8,4,3,2), fill in the following chart. **(group_size=64)** **(10%)**
+2. Try to quantize `Llama3.2-1B-Instruct` from FP16 to nbit integer (n=8,4,2), fill in the following chart. **(group_size=64)** **(10%)**
 
-|        nbit         |    16    |  8  |  4  |  2  |
-|:-------------------:|:--------:|:---:|:---:|:---:|
-|  Perplexity (PPL)   |  13.160  |13.167|15.051|215864.438|
-|  Model Size (MiB)   | 2858.129 |1988.135|1524.135|1292.135|
-| Throughput (toks/s) | 124.431  |162.956|233.551|242.203|
-|     Speedup (X)     |  1.000   |1.309|1.876|1.946|
-|      Score (X)      |    5     |  10  |  5  |  5  |
+    |        nbit         |    16    |    8     |    4     |     2      |
+    |:-------------------:|:--------:|:--------:|:--------:|:----------:|
+    |  Perplexity (PPL)   |  13.160  |  13.167  |  15.051  | 215864.438 |
+    |  Model Size (MiB)   | 2858.129 | 1988.135 | 1524.135 |  1292.135  |
+    | Throughput (toks/s) | 124.431  | 162.956  | 233.551  |  242.203   |
 
-1. Explain how you determine the quantization method for `DeiT-S` and `Llama3.2-1B-Instruct` for best performance. If you can provide a visualized analysis or any chart according to your experiment would be better. **(15%)**
+3. Explain how you determine the quantization method for `DeiT-S` and `Llama3.2-1B-Instruct` for best performance. Provide any visualized analysis or any chart based on your experiment to clearly show the details of your configuration. **(15%)**
 
-2. Which model is harder to quantize, what might be the reason ?  **(5%)**
+    | Model            | DeiT-S                                               | Llama3.2-1B-Instruct                                               |
+    |:----------------:|:----------------------------------------------------:|:------------------------------------------------------------------:|
+    | Heatmap of score | ![DeiT-S](https://hackmd.io/_uploads/B1pLIG81ee.png) | ![Llama3.2-1B-Instruct](https://hackmd.io/_uploads/B1WPLGUkxl.png) |
 
-3. Please attach screenshots showing the speedup and PPL of `Llama3.2-1B-Instruct` in your report. The screenshot will be used as the evidence in case performance drops due to different hardware platform. **(For Criteria of Section 2.2)**
+    I plotted the **heatmap of score** for two models: **DeiT-S** and **Llama3.2-1B-Instruct**, where the x-axis represents `nbit`, the y-axis represents `group_size`, and the cell values are the `score`. From the DeiT-S heatmap, we can see that the highest score (19.092) occurs when `nbit = 4` and `group_size = 32`. As for Llama3.2-1B-Instruct, the highest score (10) appears when `nbit = 8` and `group_size = 64` or `128`. Therefore, I ultimately decided to use this configuration.
+
+4. Which model is harder to quantize, what might be the reason ?  **(5%)**
+
+    I think **DeiT-S** is harder to quantize. This is because DeiT-S has fewer parameters than Llama3.2-1B-Instruct, causing its accuracy to drop more rapidly when quantized to lower bitwidths.
+
+5. Please attach screenshots showing the speedup and PPL of `Llama3.2-1B-Instruct` in your report. The screenshot will be used as the evidence in case performance drops due to different hardware platform. **(For Criteria of Section 2.2)**
+
+    ![image](https://hackmd.io/_uploads/HySt8J8Jex.png)
 
 ## Hand-In Policy
 

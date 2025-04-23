@@ -9,7 +9,7 @@ import numpy as np
 from hqq_utils import AutoHQQHFModel, get_size_of_model
 from hqq.utils.patching import recommended_inductor_config_setter
 
-from quant_cfg import get_quant_config_slm
+from quant_cfg_6 import get_quant_config_slm
 
 def generate(model, input_ids, past_key_values, max_new_tokens, activate_timing, verbose=True):
     input_ids = input_ids.clone()

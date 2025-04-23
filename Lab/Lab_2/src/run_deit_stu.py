@@ -7,7 +7,7 @@ from hqq.utils.patching import recommended_inductor_config_setter
 from hqq_utils import AutoHQQTimmModel, get_size_of_model
 from utils import prepare_data, evaluate_model
 
-from quant_cfg import get_quant_config_deit
+from quant_cfg_6 import get_quant_config_deit
 
 def main():
     ############## Set Up ##############
