@@ -1,4 +1,4 @@
-# **Lab 2: Quantization**
+# **Lab 2: Vision Model Quantization**
 
 <span style="color:Red;">**Due Date: 4/24 23:59**</span>
 
