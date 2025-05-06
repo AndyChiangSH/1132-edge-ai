@@ -173,3 +173,4 @@ cython_debug/
 # My gitignore
 Lab/Lab_1/data/cifar10/cifar-10-python.tar.gz
 Lab/Lab_2/data/
+Lab/Lab_3/triton-viz/
